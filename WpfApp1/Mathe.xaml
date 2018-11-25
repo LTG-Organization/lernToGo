@@ -30,9 +30,9 @@
         <CheckBox  x:Name="Subtraktion" Content="Subtraktion" Background="#FF111010" FontSize="32" HorizontalAlignment="Left" Margin="293,388,0,0" VerticalAlignment="Top" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2"/>
         <CheckBox  x:Name="Division" Content="Division" Background="#FF111010" FontSize="32" HorizontalAlignment="Left" Margin="590,388,0,0" VerticalAlignment="Top" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2"/>
         <Label x:Name="TimerFeld" Content="Restzeit : " Margin="158,79,602.6,557.6" Height="57" Width="257" FontSize="32" FontWeight="Bold"/>
-        <Label x:Name="zahlfeld1" Content="0" Margin="305,136,602.6,444.6" FontSize="82" FontWeight="Bold"/>
-        <Label x:Name="zahlfeld2" Content="0" Margin="590,136,317.6,444.6" FontSize="82" FontWeight="Bold"/>
-        <Label x:Name="operandfeld" Content="+" Margin="448,136,459.6,444.6" FontSize="82" FontWeight="Bold"/>
+        <Label x:Name="zahlfeld1" Content="0" Margin="389,141,518.6,439.6" FontSize="82" FontWeight="Bold"/>
+        <Label x:Name="zahlfeld2" Content="0" Margin="655,141,252.6,439.6" FontSize="82" FontWeight="Bold"/>
+        <Label x:Name="operandfeld" Content="+" Margin="504,141,403.6,439.6" FontSize="82" FontWeight="Bold"/>
 
 
 
