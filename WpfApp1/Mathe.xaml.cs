@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfApp1
 {
@@ -19,13 +20,19 @@ namespace WpfApp1
     /// </summary>
     public partial class Mathe : Window
     {
+        DispatcherTimer timer = new DispatcherTimer();
+        int time = 10, og, ug,z1,z2,result,eingResult;
+        
         public Mathe()
         {
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            timer.Tick += new EventHandler(timer_zaehlt);
+            timer.Interval = new TimeSpan(0, 0, 1);
 
         }
-
+        
+       
         private void BttnClose_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -66,6 +73,30 @@ namespace WpfApp1
             MainWindow home = new MainWindow();
             home.Show();
             this.Close();
+        }
+        private void starter()
+        {
+            Random zufahl = new Random();
+            z1 = zufahl.Next();
+            z2 = zufahl.Next();
+
+        }
+        private void timer_zaehlt(object sender, EventArgs e)
+        {
+            time--;
+            if (time < 0)
+            {
+                time = 10;
+               // timer.Stop();
+            }
+            TimerFeld.Content = "Restzeit : "+ time.ToString();
+        }
+
+        private void btnMatheStart_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Start();
+            
+            
         }
     }
 }

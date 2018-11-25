@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow1" Background="#0066CC" Height="700" Width="1024" ShowInTaskbar="True" WindowStyle="None">
     <Grid Background="#252E3B">
-        <Grid Height="40" Margin="0,0,0,0" VerticalAlignment="Top" Background="#0066CC" MouseDown="Grid_MouseDown">
+        <Grid Height="50" Margin="0,0,0,0" VerticalAlignment="Top" Background="#0066CC" MouseDown="Grid_MouseDown">
             <Image Source="icons/Telegram_Messenger.png" Height="30" Width="30" HorizontalAlignment="Left" Margin="8,0,0,0" Grid.RowSpan="2" />
             <TextBlock Text="LearnToGo"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="44,7,0,7" FontSize="22"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
