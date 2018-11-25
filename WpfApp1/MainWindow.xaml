@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow1" Background="#0066CC" Height="600" Width="1024" ShowInTaskbar="True" WindowStyle="None">
+        Title="MainWindow1" Background="#0066CC" Height="700" Width="1024" ShowInTaskbar="True" WindowStyle="None">
     <Grid Background="#252E3B">
         <Grid Height="40" Margin="0,0,0,0" VerticalAlignment="Top" Background="#0066CC" MouseDown="Grid_MouseDown">
             <Image Source="icons/Telegram_Messenger.png" Height="30" Width="30" HorizontalAlignment="Left" Margin="8,0,0,0" Grid.RowSpan="2" />
@@ -43,9 +43,15 @@
             </Button>
             <TextBlock Text="Einstellungen" Foreground="White" VerticalAlignment="Center" FontSize="20" Margin="0,0,0,0"/>
         </StackPanel>
+        <StackPanel Width="120" Height="180" Margin="0,520,50,0">
+            <Button x:Name="bttnStatistik" Width="100" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image Source="icons\Grafik.png" Width="200"/>
+            </Button>
+            <TextBlock Text="Statistik" Foreground="White" FontSize="20" Margin="7,10,8,0" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        </StackPanel>
         <DockPanel Background="White" Width="500" Height="1" Margin="0,300,0,0"/>
         <Canvas>
-            <StackPanel Background="#1A2028"  Width="250" Margin="-190,50,0,0">
+            <StackPanel Background="#1A2028"  Width="250" Margin="-190,50,0,0" VerticalAlignment="Center">
                 <StackPanel.Style>
                     <Style TargetType="StackPanel">
                         <Style.Triggers>
@@ -83,16 +89,20 @@
                     <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/Karteikarten.png" Width="50" Height="60"/>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Karteikarten" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
-                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/Karteikarten.png" Width="50" Height="60"/>
+                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Mathe" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
+                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/icons8-mathe-90.png" Width="50" Height="60"/>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Karteikarten" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
-                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/Karteikarten.png" Width="50" Height="60"/>
+                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Einstellungen" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
+                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/icons8-einstellungen-500.png" Width="50" Height="60"/>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Karteikarten" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
-                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/Karteikarten.png" Width="50" Height="60"/>
+                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Statistik" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
+                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/Grafik.png" Width="50" Height="60"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
+                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Abmelden" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
+                    <MaterialDesign:PackIcon Kind="Logout"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Width="50" Height="60"/>
                 </DockPanel>
             </StackPanel>
         </Canvas>

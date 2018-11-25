@@ -116,7 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\icons8-einstellungen-500.png" />
-    <Resource Include="icons\icons8-kombi-diagramm-filled-500.png" />
+    <Resource Include="icons\Grafik.png" />
     <Resource Include="icons\icons8-mathe-90.png" />
     <Resource Include="icons\icons8-menü-filled-500.png" />
   </ItemGroup>
