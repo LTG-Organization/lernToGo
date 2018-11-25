@@ -10,28 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für Mathe.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Mathe : Window
     {
-        public MainWindow()
+        public Mathe()
         {
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
         }
 
-            //Button Click Close
-        private void bttnClose_Click_1(object sender, RoutedEventArgs e)
+        private void BttnClose_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-            //Fenster verschieben
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -42,7 +40,8 @@ namespace WpfApp1
             if (this.WindowState == WindowState.Normal)
             {
                 this.WindowState = WindowState.Maximized;
-            }else if(this.WindowState == WindowState.Maximized)
+            }
+            else if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
             }
@@ -55,16 +54,17 @@ namespace WpfApp1
                 this.WindowState = WindowState.Minimized;
             }
         }
-
-        private void TextBlock_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-
-        }
-
         private void Mathe_c(object sender, RoutedEventArgs e)
         {
             Mathe mathe = new Mathe();
-            mathe.Show();
+            this.Show();
+            
+        }
+
+        private void Home_c(object sender, RoutedEventArgs e)
+        {
+            MainWindow home = new MainWindow();
+            home.Show();
             this.Close();
         }
     }
