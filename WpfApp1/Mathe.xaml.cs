@@ -79,7 +79,8 @@ namespace WpfApp1
             Random zufahl = new Random();
             z1 = zufahl.Next();
             z2 = zufahl.Next();
-
+            zahlfeld1.Content = z1.ToString();
+            zahlfeld2.Content = z2.ToString();
         }
         private void timer_zaehlt(object sender, EventArgs e)
         {
@@ -87,14 +88,19 @@ namespace WpfApp1
             if (time < 0)
             {
                 time = 10;
+                starter();
                // timer.Stop();
             }
             TimerFeld.Content = "Restzeit : "+ time.ToString();
+            //starter();
         }
 
         private void btnMatheStart_Click(object sender, RoutedEventArgs e)
         {
             timer.Start();
+            //if (time==10) {
+                starter();
+            //}
             
             
         }
