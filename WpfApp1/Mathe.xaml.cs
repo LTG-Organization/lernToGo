@@ -33,8 +33,8 @@ namespace WpfApp1
         {
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
-            timer.Tick += new EventHandler(timer_zaehlt);
-            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += new EventHandler(timer_zaehlt);           //Timer starten
+            timer.Interval = new TimeSpan(0, 0, 1);                 //timer nach sekunden einstellen
 
         }
         
@@ -48,7 +48,7 @@ namespace WpfApp1
             this.DragMove();
         }
 
-        private void Allcb_Checked(object sender, RoutedEventArgs e)
+        private void Allcb_Checked(object sender, RoutedEventArgs e) //Rechenarten auswahlen und ausgewählte in operanden liste einfügen
         {
             int a = 0;
             if (Addition.IsChecked == true)
@@ -115,31 +115,35 @@ namespace WpfApp1
         {
             if (Addition.IsChecked == false && Multiplikation.IsChecked == false && Subtraktion.IsChecked == false && Division.IsChecked == false)
             {
-                MessageBox.Show("Bitte wählen Sie mindestens Einer der vier Rechenarten aus");
+                //Wenn keine rechenart ausgewählt ist
+                MessageBox.Show("Bitte wählen Sie mindestens Einer der vier Rechenarten aus"); 
             }
             else 
             {
+                //wenn mindestens eine rechenart ausgewählt ist dann alles organisieren
                 int n;
-                Random zufahl = new Random();
+                Random zufahl = new Random();   //zufahlzahlen erziehen
                 z1 = zufahl.Next();
                 z2 = zufahl.Next();
+                n = zufahl.Next(i);
+                                                    //zufahlzahlen an den textfelder
                 zahlfeld1.Content = z1.ToString();
                 zahlfeld2.Content = z2.ToString();
-                n = zufahl.Next(i);
-                Punktfeld.Content = "Punkte : " + n.ToString();
                 operandfeld.Content = operanden[n];
-                timer.Start();
+                Punktfeld.Content = "Punkte : " + punkt.ToString();
+
+                timer.Start(); //timer starten
             }
             
         }
         
         private void timer_zaehlt(object sender, EventArgs e)
-        {
+        {       //Timer tickt jeder sekunde
             time--;
-            if (time < 0)
+            if (time < 0) 
             {
-                time = 10;
-                starter();
+                time = 10;   //wenn timer kleiner als 0 ist dann wieder zurück zur timegrenze und starte nochmal
+                starter(); 
                
             }
             TimerFeld.Content = "Restzeit : "+ time.ToString();
@@ -148,8 +152,10 @@ namespace WpfApp1
 
         private void btnMatheStart_Click(object sender, RoutedEventArgs e)
         {
-            
+            //wenn buton geklickt wird dann starte die aufgaben
             starter();
+            time = 10;
+            timer.Start();
             
             
             
