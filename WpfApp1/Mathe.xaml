@@ -23,17 +23,18 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <Label x:Name="Punktfeld" Content="Punkte : 0" HorizontalAlignment="Left" Margin="728,79,0,0" VerticalAlignment="Top" Height="62" Width="247" FontSize="32" FontWeight="Bold"/>
 
-        <CheckBox  x:Name="Addition" Content="Addition" Background="#FF111010" FontSize="32" HorizontalAlignment="Left" Margin="293,328,0,0" VerticalAlignment="Top" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2" Checked="Allcb_Checked"/>
-        <CheckBox  x:Name="Multiplikation" Content="Multiplikation" Background="#FF111010" FontSize="32" HorizontalAlignment="Left" Margin="590,328,0,0" VerticalAlignment="Top" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="284" BorderThickness="2" Checked="Allcb_Checked"/>
-        <CheckBox  x:Name="Subtraktion" Content="Subtraktion" Background="#FF111010" FontSize="32" HorizontalAlignment="Left" Margin="293,388,0,0" VerticalAlignment="Top" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2" Checked="Allcb_Checked"/>
-        <CheckBox  x:Name="Division" Content="Division" Background="#FF111010" FontSize="32" HorizontalAlignment="Left" Margin="590,388,0,0" VerticalAlignment="Top" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2" Checked="Allcb_Checked"/>
-        <Label x:Name="TimerFeld" Content="Restzeit : " Margin="158,79,602.6,557.6" Height="57" Width="257" FontSize="32" FontWeight="Bold"/>
-        <Label x:Name="zahlfeld1" Content="0" Margin="389,141,518.6,439.6" FontSize="82" FontWeight="Bold"/>
-        <Label x:Name="zahlfeld2" Content="0" Margin="655,141,252.6,439.6" FontSize="82" FontWeight="Bold"/>
-        <Label x:Name="operandfeld" Content="+" Margin="504,141,403.6,439.6" FontSize="82" FontWeight="Bold"/>
+        <Label x:Name="Punktfeld" Content="Punkte : 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="705,79,65.6,552.6" Height="62" Width="247" FontSize="32" FontWeight="Bold"/>
 
+        <CheckBox  x:Name="Addition" Content="Addition" Background="#FF111010" FontSize="32" HorizontalAlignment="Stretch" Margin="275,428,504.6,201.6" VerticalAlignment="Stretch" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2" Checked="Allcb_Checked"/>
+        <CheckBox  x:Name="Multiplikation" Content="Multiplikation" Background="#FF111010" FontSize="32" HorizontalAlignment="Stretch" Margin="590,428,143.6,201.6" VerticalAlignment="Stretch" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="284" BorderThickness="2" Checked="Allcb_Checked"/>
+        <CheckBox  x:Name="Subtraktion" Content="Subtraktion" Background="#FF111010" FontSize="32" HorizontalAlignment="Stretch" Margin="275,497,504.6,132.6" VerticalAlignment="Stretch" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2" Checked="Allcb_Checked"/>
+        <CheckBox  x:Name="Division" Content="Division" Background="#FF111010" FontSize="32" HorizontalAlignment="Stretch" Margin="590,497,189.6,132.6" VerticalAlignment="Stretch" Foreground="#FF111010" FontWeight="Bold" Height="64" Width="238" BorderThickness="2" Checked="Allcb_Checked"/>
+        <Label x:Name="TimerFeld" Content="Restzeit : " HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="158,79,602.6,557.6" Height="57" Width="257" FontSize="32" FontWeight="Bold"/>
+        <Label x:Name="zahlfeld1" Content="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="158,141,749.6,439.6" FontSize="82" FontWeight="Bold" RenderTransformOrigin="-0.305,0.607"/>
+        <Label x:Name="zahlfeld2" Content="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="718,141,189.6,439.6" FontSize="82" FontWeight="Bold"/>
+        <Label x:Name="operandfeld" Content="+" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="432,141,504.6,439.6" FontSize="82" FontWeight="Bold"/>
+        <TextBox x:Name="ErgebnisEingFeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Margin="432,259,378.6,328.6"  FontSize="72" FontWeight="Bold"/>
 
 
 
@@ -94,17 +95,9 @@
                     <MaterialDesign:PackIcon Kind="Logout"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Width="50" Height="60"/>
                 </DockPanel>
             </StackPanel>
-            <Button x:Name="btnMatheStart" Content="START" Canvas.Left="847" Canvas.Top="599" Width="133" Height="52" FontSize="32" FontWeight="Bold" Click="btnMatheStart_Click"/>
-            <TextBox x:Name="ErgebnisEingFeld" Height="60" Canvas.Left="415" TextWrapping="Wrap" Canvas.Top="274" Width="251" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" AutomationProperties.HelpText="Ergebnis Eingeben">
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="1.007"/>
-                        <RotateTransform/>
-                        <TranslateTransform X="1.193"/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
+            <Button x:Name="btnMatheStart" Content="START" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="133" Height="52" FontSize="32" FontWeight="Bold" Click="btnMatheStart_Click" Canvas.Left="847" Canvas.Top="632"/>
+
+
         </Canvas>
     </Grid>
 </Window>

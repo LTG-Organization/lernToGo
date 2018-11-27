@@ -21,7 +21,7 @@ namespace WpfApp1
     public partial class Mathe : Window
     {
         DispatcherTimer timer = new DispatcherTimer();
-        int time = 10, og, ug, z1, z2, result, eingResult, punkt,i;
+        int time = 10, og, ug, z1, z2, result, eingResult=0, punkt,i;
           
         String[] operanden = new string[4];
 
@@ -56,6 +56,10 @@ namespace WpfApp1
                 operanden[a] = "+";
                 a+=1;
                 
+            }else if (Addition.IsChecked == false)
+            {
+                //Es muss implementiert werden wenn ceheckbox nicht aktiv ist dann soll von der liste gelöscht werden 
+                //und a muss einer weniger mussmann überlegene wie????????
             }
             if (Multiplikation.IsChecked==true)
             {
@@ -113,14 +117,6 @@ namespace WpfApp1
         }
         private void starter()
         {
-            if (Addition.IsChecked == false && Multiplikation.IsChecked == false && Subtraktion.IsChecked == false && Division.IsChecked == false)
-            {
-                //Wenn keine rechenart ausgewählt ist
-                MessageBox.Show("Bitte wählen Sie mindestens Einer der vier Rechenarten aus"); 
-            }
-            else 
-            {
-                //wenn mindestens eine rechenart ausgewählt ist dann alles organisieren
                 int n;
                 Random zufahl = new Random();   //zufahlzahlen erziehen
                 z1 = zufahl.Next();
@@ -130,10 +126,32 @@ namespace WpfApp1
                 zahlfeld1.Content = z1.ToString();
                 zahlfeld2.Content = z2.ToString();
                 operandfeld.Content = operanden[n];
-                Punktfeld.Content = "Punkte : " + punkt.ToString();
+            if (operandfeld.Content=="+")
+            {
+                result = z1 + z2;
+
+            }
+            else if (operandfeld.Content == "*")
+            {
+                result = z1 * z2;
+
+            }
+            else if (operandfeld.Content == "-")
+            {
+                result = z1 - z2;
+
+            }
+            else if (operandfeld.Content == "/")
+            {
+                result = z1 / z2;
+
+            }
+            if (result == eingResult) punkt++; 
+            Punktfeld.Content = "Punkte : " + punkt.ToString();
 
                 timer.Start(); //timer starten
-            }
+                
+            
             
         }
         
@@ -153,12 +171,25 @@ namespace WpfApp1
         private void btnMatheStart_Click(object sender, RoutedEventArgs e)
         {
             //wenn buton geklickt wird dann starte die aufgaben
-            starter();
-            time = 10;
-            timer.Start();
             
-            
-            
+            if (Addition.IsChecked == false && Multiplikation.IsChecked == false && Subtraktion.IsChecked == false && Division.IsChecked == false)
+            {
+                //Wenn keine rechenarten ausgewhlt ist dann nichts starten
+                time = 10;
+                timer.Stop();
+                MessageBox.Show("Bitte wählen Sie mindestens Einer der vier Rechenarten aus");
+
+            }
+            else
+            {
+                time = 10;
+                timer.Start();
+                starter();
+            }
+            ErgebnisEingFeld.Text = Convert.ToString(0);
+            eingResult = Convert.ToInt32(ErgebnisEingFeld.Text);
+
+
         }
     }
 }
