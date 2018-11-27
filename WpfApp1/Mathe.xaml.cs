@@ -37,8 +37,27 @@ namespace WpfApp1
             timer.Interval = new TimeSpan(0, 0, 1);                 //timer nach sekunden einstellen
 
         }
-        
-       
+
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Visible;
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            ButtonCloseMenu.Visibility = Visibility.Visible;
+        }
+
+        private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow home = new MainWindow();
+            this.Close();
+            home.Show();
+
+        }
+
         private void BttnClose_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -78,7 +97,7 @@ namespace WpfApp1
             i = a;
         }
 
-        // Bildischrim maximieren und normalieren
+        // Bildischrim maximieren und normalizieren
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (this.WindowState == WindowState.Normal)
@@ -98,19 +117,7 @@ namespace WpfApp1
                 this.WindowState = WindowState.Minimized;
             }
         }
-        private void Mathe_c(object sender, RoutedEventArgs e)
-        {
-            Mathe mathe = new Mathe();
-            this.Show();
-            
-        }
 
-        private void Home_c(object sender, RoutedEventArgs e)
-        {
-            MainWindow home = new MainWindow();
-            home.Show();
-            this.Close();
-        }
         private void starter()
         {
             if (Addition.IsChecked == false && Multiplikation.IsChecked == false && Subtraktion.IsChecked == false && Division.IsChecked == false)

@@ -55,17 +55,31 @@ namespace WpfApp1
                 this.WindowState = WindowState.Minimized;
             }
         }
-
-        private void TextBlock_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            ButtonOpenMenu.Visibility = Visibility.Visible;
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
         }
 
-        private void Mathe_c(object sender, RoutedEventArgs e)
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            ButtonCloseMenu.Visibility = Visibility.Visible;
+        }
+
+        private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Mathe mathe = new Mathe();
-            mathe.Show();
             this.Close();
+            mathe.Show();
+        }
+
+        private void bttnMathe_Click(object sender, RoutedEventArgs e)
+        {
+            Mathe mathe = new Mathe();
+            this.Close();
+            mathe.Show();
+            
         }
     }
 }

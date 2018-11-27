@@ -6,11 +6,35 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow1" Background="#0066CC" Height="700" Width="1024" ShowInTaskbar="True" WindowStyle="None">
-    <Grid Background="#252E3B">
-        <Grid Height="50" Margin="0,0,0,0" VerticalAlignment="Top" Background="#0066CC" MouseDown="Grid_MouseDown">
-            <Image Source="icons/Telegram_Messenger.png" Height="30" Width="30" HorizontalAlignment="Left" Margin="8,0,0,0" Grid.RowSpan="2" />
-            <TextBlock Text="LearnToGo"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="44,7,0,7" FontSize="22"/>
+        Title="MainWindow1" Background="#0066CC" Height="600" Width="900" ShowInTaskbar="True" WindowStyle="None" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}" />
+        </EventTrigger>
+    </Window.Triggers>
+
+
+    <Grid Background="#FFDCE2EA">
+        <Grid Height="40" Margin="0,0,0,0" VerticalAlignment="Top" Background="#0066CC" MouseDown="Grid_MouseDown">
+            <TextBlock Text="LearnToGo" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" FontSize="22"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="bttnMinimze" Width="40" Height="40" Foreground="LightGray" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="bttnMinimze_Click">
                     <MaterialDesign:PackIcon Kind="WindowMinimize" Width="25" Height="25"/>
@@ -23,88 +47,88 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <TextBlock Text="Willkommen bei LearnToGo!" HorizontalAlignment="Center" VerticalAlignment="center" FontSize="30" Foreground="White" Margin="0,0,0,300" FontWeight="Bold" />
-        <TextBlock Text="Lass uns lernen" HorizontalAlignment="Center" VerticalAlignment="center" FontSize="25" Foreground="White" Margin="0,0,0,200" />
-        <StackPanel Width="120" Height="180" Margin="0,160,350,0">
+        <TextBlock Text="Willkommen bei LearnToGo!" HorizontalAlignment="Center" VerticalAlignment="center" FontSize="30" Foreground="Black" Margin="100,0,0,400" FontWeight="Bold" />
+        <TextBlock Text="Lass uns lernen" HorizontalAlignment="Center" VerticalAlignment="center" FontSize="25" Foreground="Black" Margin="100,0,0,300" />
+        <StackPanel Width="120" Height="180" Margin="100,-50,350,0">
             <Button x:Name="bttnKarteikarten" Width="100" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
-                <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="icons\Karteikarten.png" Width="100"/>
+                <MaterialDesign:PackIcon Width="100" Height="200" Kind="Cards" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Button>
-            <TextBlock HorizontalAlignment="Center" Text="Karteikarten" Foreground="White" VerticalAlignment="Bottom" FontSize="20" Margin="7,0,6,0" RenderTransformOrigin="0.528,2.815"/>
+            <TextBlock HorizontalAlignment="Center" Text="Karteikarten" Foreground="Black" VerticalAlignment="Bottom" FontSize="20" Margin="7,0,6,0" RenderTransformOrigin="0.528,2.815"/>
         </StackPanel>
-        <StackPanel Width="120" Height="180" Margin="0,160,50,0">
-            <Button x:Name="bttnMathe" Width="100" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Source="icons\icons8-mathe-90.png" Width="200"/>
+        <StackPanel Width="120" Height="180" Margin="100,-50,50,0">
+            <Button x:Name="bttnMathe" Width="100" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="bttnMathe_Click">
+                <MaterialDesign:PackIcon Width="100" Height="200" Kind="Calculator" Foreground="black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Mathe" Foreground="White" FontSize="20" Margin="7,0,6,0" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            <TextBlock Text="Mathe" Foreground="Black" FontSize="20" Margin="7,0,6,0" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
         </StackPanel>
-        <StackPanel Width="120" Height="180" Margin="0,160,-300,0">
+        <StackPanel Width="120" Height="180" Margin="100,-50,-300,0">
             <Button x:Name="bttnEinstellungen" Width="100" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
-                <Image Source="icons\icons8-einstellungen-500.png" Width="200"/>
+                <MaterialDesign:PackIcon Width="100" Height="200" Kind="Settings" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Einstellungen" Foreground="White" VerticalAlignment="Center" FontSize="20" Margin="0,0,0,0"/>
+            <TextBlock Text="Einstellungen" Foreground="Black" VerticalAlignment="Center" FontSize="20" Margin="0,0,0,0"/>
         </StackPanel>
-        <StackPanel Width="120" Height="180" Margin="0,520,50,0">
+        <StackPanel Width="120" Height="180" Margin="100,350,50,0">
             <Button x:Name="bttnStatistik" Width="100" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Source="icons\Grafik.png" Width="200"/>
+                <MaterialDesign:PackIcon Width="100" Height="200" Kind="ChartPie" Foreground="black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Statistik" Foreground="White" FontSize="20" Margin="7,10,8,0" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            <TextBlock Text="Statistik" Foreground="Black" FontSize="20" Margin="7,10,8,0" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
         </StackPanel>
-        <DockPanel Background="White" Width="500" Height="1" Margin="0,300,0,0"/>
-        <Canvas>
-            <StackPanel Background="#1A2028"  Width="250" Margin="-190,50,0,0" VerticalAlignment="Center">
-                <StackPanel.Style>
-                    <Style TargetType="StackPanel">
-                        <Style.Triggers>
-                            <EventTrigger RoutedEvent="MouseEnter">
-                                <EventTrigger.Actions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-190,50,0,0" To="0,50,0,0" DecelerationRatio=".9" Duration="0:0:1"></ThicknessAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger.Actions>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="MouseLeave">
-                                <EventTrigger.Actions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,50,0,0" To="-190,50,0,0" DecelerationRatio=".9" Duration="0:0:1"></ThicknessAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger.Actions>
-                            </EventTrigger>
-                        </Style.Triggers>
-                    </Style>
-
-                </StackPanel.Style>
+        <DockPanel Background="Gray" Width="500" Height="1" Margin="100,100,0,0"/>
 
 
 
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10">
-                    <Button Background="{x:Null}" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Home" Width="150" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}" RenderTransformOrigin="-0.333,0.781"/>
-                    <Image Source="icons/Home.png" Width="50" Height="50" />
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Karteikarten" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
-                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/Karteikarten.png" Width="50" Height="60"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Mathe" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}" Click="Mathe_c"/>
-                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/icons8-mathe-90.png" Width="50" Height="60"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Einstellungen" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
-                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/icons8-einstellungen-500.png" Width="50" Height="60"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Statistik" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
-                    <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Source="icons/Grafik.png" Width="50" Height="60"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,10,0,10" >
-                    <Button Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Abmelden" FontSize="18" Width="150" Foreground="White " Cursor="Hand" BorderBrush="{x:Null}"/>
-                    <MaterialDesign:PackIcon Kind="Logout"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Width="50" Height="60"/>
-                </DockPanel>
+        <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF05305B">
+            <StackPanel>
+                <Grid Height="150" Background="White">
+                    <Button Name="ButtonCloseMenu" VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <MaterialDesign:PackIcon Kind="ArrowLeft" Foreground="Black" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button Name="ButtonOpenMenu" VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonOpenMenu_Click">
+                        <MaterialDesign:PackIcon Kind="Menu" Foreground="Black" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                </Grid>
+                <ListView Margin="0,20,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <MaterialDesign:PackIcon Width="40" Height="40" Kind="Home" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="Home" FontSize="20" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <MaterialDesign:PackIcon Width="40" Height="40" Kind="Cards" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="Karteikarte" FontSize="20" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal" MouseUp="StackPanel_MouseUp">
+                            <MaterialDesign:PackIcon Width="40" Height="40" Kind="Calculator" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="Mathe" FontSize="20" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <MaterialDesign:PackIcon Width="40" Height="40" Kind="Settings" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="Einstellungen" FontSize="20" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <MaterialDesign:PackIcon Width="40" Height="40" Kind="ChartPie" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="Statistik" FontSize="20" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <MaterialDesign:PackIcon Width="40" Height="40" Kind="LogoutVariant" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="Log out" FontSize="20" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
             </StackPanel>
-        </Canvas>
+        </Grid>
+
+
+
     </Grid>
 </Window>
